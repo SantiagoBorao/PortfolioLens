@@ -1,0 +1,18 @@
+name: portfoliolens_dbt
+version: "1.0.0"
+config-version: 2
+
+profile: portfoliolens
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  portfoliolens_dbt:
+    staging:
+      +schema: staging
+      +materialized: view
+    mart:
+      +schema: mart
+      +materialized: table
